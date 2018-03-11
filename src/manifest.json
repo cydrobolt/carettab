@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
- 
+
   "name": "__MSG_appName__",
-  "short_name": "CaretTab",
+  "short_name": "CaretTab w Quote",
   "description": "__MSG_appDesc__",
   "version": "2.3.1",
   "version_name": "2.3.1",
@@ -15,7 +15,7 @@
   "chrome_url_overrides" : {
     "newtab": "carettab.htm"
   },
-  
+
   "background": {
     "scripts": ["js/update.js"],
     "persistent": false
@@ -24,7 +24,7 @@
   "offline_enabled": true,
 
   "permissions": [
-    "storage"
+    "storage",
+    "https://api.forismatic.com/"
   ]
-  
 }

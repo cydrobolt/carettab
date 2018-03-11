@@ -267,3 +267,15 @@ body.font-special-elite {
     transform: scale(1);
   }
 }
+
+#newttab-quote {
+    font-size: 2rem;
+    width: 50vw;
+    margin-top: 7rem;
+    text-align: center;
+
+    .-author {
+        opacity: 0.5;
+        margin-top: 0.8rem;
+    }
+}

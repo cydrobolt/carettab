@@ -172,26 +172,26 @@ function updateAll() {
     (sDate == 'off' && sTabTitle == 'tab-datetime')
   ) {
     months = [
-      chrome.i18n.getMessage("january"), 
-      chrome.i18n.getMessage("february"), 
-      chrome.i18n.getMessage("march"), 
-      chrome.i18n.getMessage("april"), 
-      chrome.i18n.getMessage("may"), 
-      chrome.i18n.getMessage("june"), 
-      chrome.i18n.getMessage("july"), 
-      chrome.i18n.getMessage("august"), 
-      chrome.i18n.getMessage("september"), 
+      chrome.i18n.getMessage("january"),
+      chrome.i18n.getMessage("february"),
+      chrome.i18n.getMessage("march"),
+      chrome.i18n.getMessage("april"),
+      chrome.i18n.getMessage("may"),
+      chrome.i18n.getMessage("june"),
+      chrome.i18n.getMessage("july"),
+      chrome.i18n.getMessage("august"),
+      chrome.i18n.getMessage("september"),
       chrome.i18n.getMessage("october"),
-      chrome.i18n.getMessage("november"), 
+      chrome.i18n.getMessage("november"),
       chrome.i18n.getMessage("december")
     ];
     days = [
-      chrome.i18n.getMessage("sunday"), 
-      chrome.i18n.getMessage("monday"), 
-      chrome.i18n.getMessage("tuesday"), 
-      chrome.i18n.getMessage("wednesday"), 
-      chrome.i18n.getMessage("thursday"), 
-      chrome.i18n.getMessage("friday"), 
+      chrome.i18n.getMessage("sunday"),
+      chrome.i18n.getMessage("monday"),
+      chrome.i18n.getMessage("tuesday"),
+      chrome.i18n.getMessage("wednesday"),
+      chrome.i18n.getMessage("thursday"),
+      chrome.i18n.getMessage("friday"),
       chrome.i18n.getMessage("saturday")
     ];
     day = days[dt.getDay()];
@@ -501,3 +501,17 @@ function updateAll() {
     clearTimeout(updateAllTimer);
   }
 }
+
+// Show inspirational quote
+var quoteEndpoint = 'https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en';
+$.getJSON(quoteEndpoint, function(quoteData) {
+    var quoteText = quoteData.quoteText;
+    var quoteAuthor = quoteData.quoteAuthor;
+
+    var displayQuote = '"' + quoteText + '"';
+    if (quoteAuthor) {
+        displayQuote += '<p class="-author">' + quoteAuthor + '</p>';
+    }
+
+    $('#newttab-quote').html(displayQuote);
+});
